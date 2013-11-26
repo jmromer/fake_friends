@@ -1,5 +1,5 @@
 require 'twitter'
-require 'psych'
+require 'yaml'
 
 puts 'Enter your Twitter API credentials (get some @ dev.twitter.com).'
 print 'consumer key: '
@@ -30,11 +30,11 @@ def posts(twitter_username, count)
 end
 
 
-number_of_users_to_pull = 30
+number_of_users_to_pull = 100
 number_of_posts_to_pull = 30
 
 usernames = 'usernames.yml'
-users     = File.open(usernames, 'r'){|file| Psych.load(file, usernames) }
+users     = File.open(usernames, 'r'){|file| YAML.load(file, usernames) }
 users     = users.sample(number_of_users_to_pull)
 friends   = {}
 

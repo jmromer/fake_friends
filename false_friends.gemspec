@@ -19,10 +19,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "psych"
   spec.add_runtime_dependency "twitter"
 
-  spec.add_development_dependency "psych"
   spec.add_development_dependency "twitter"
   spec.add_development_dependency "rspec"
 

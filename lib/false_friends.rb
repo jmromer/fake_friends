@@ -1,6 +1,7 @@
 require "false_friends/version"
 
 module FalseFriends
+  require 'yaml'
 
   class User
     attr_reader :username, :name, :location, :description, :url, :posts
@@ -16,21 +17,21 @@ module FalseFriends
     #
     # options <hash>
     # id: n <int>
-    #   position in the users list, 1-200
+    #   position in the users list, 1-100
     #
     # username: str <string>
     #   twitter username
     #
-    # Example: User.find_by(id: 200)
+    # Example: User.find_by(id: 100)
     # => #<User:0x007ff0f286e2d8 ...>
     #
     # returns the requested user object
 
     def self.find_by(options)
       if options[:id] && options[:id].between?(1, User.list.count)
-        username = User.list[options[:id]-1]
+        username = User.list.keys[options[:id]-1]
         User.new(username)
-      elsif options[:username] && User.list.includes?(options[:username])
+      elsif options[:username] && User.list.keys.include?(options[:username])
         User.new(options[:username])
       else
         raise ArgumentError, "Requested user not found in library."
@@ -62,7 +63,8 @@ module FalseFriends
     end
 
     private
-      @user_list = File.open('false_friends/users.yml', 'r'){|f| Psych.load(f) }
+      user_lib   = File.expand_path('.') + '/lib/false_friends/users.yml'
+      @user_list = File.open(user_lib, 'r'){|f| YAML.load(f) }
 
       def self.list
         @user_list
