@@ -31,7 +31,7 @@ end
 
 
 number_of_users_to_pull = 100
-number_of_posts_to_pull = 30
+number_of_posts_to_pull = 50
 
 usernames = 'usernames.yml'
 users     = File.open(usernames, 'r'){|file| YAML.load(file, usernames) }
@@ -79,20 +79,38 @@ users.each_with_index do |u, i|
   File.open(users_lib, 'w'){|f| f.write(friends.to_yaml) }
   puts "loaded #{i+1}: #{u}"
 
-  # Twitter API limit: 15 per 15 minutes
-  if (i+1 == 15)
-    puts "(Twitter API limits 15 calls every 15 minutes)"
-    puts "taking a 15-minute power nap..."
+  if number_of_users_to_pull <= 75
+    # Twitter API limit: 15 per 15 minutes
+    if (i+1 % 15 == 0)
+      puts "taking a 15-minute power nap to stay within Twitter API rate limits..."
+
+      clock =<<-SHELL
+        MIN=15
+        for i in $(seq $(($MIN*60)) -1 1);
+          do
+            printf "\r%02d:%02d:%02d" $((i/3600)) $(( (i/60)%60)) $((i%60));
+            sleep 1;
+          done
+      SHELL
+
+      system(clock)
+      puts ""
+    end
+  else
+    puts "taking a 1-minute power nap to stay within Twitter API rate limits..."
 
     clock =<<-SHELL
-    MIN=15
-    for i in $(seq $(($MIN*60)) -1 1);
-      do
-        printf "\r%02d:%02d:%02d" $((i/3600)) $(( (i/60)%60)) $((i%60));
-        sleep 1;
-      done
+      MIN=1
+      for i in $(seq $(($MIN*60)) -1 1);
+        do
+          printf "\r%02d:%02d:%02d" $((i/3600)) $(( (i/60)%60)) $((i%60));
+          sleep 1;
+        done
     SHELL
+
     system(clock)
     puts ""
   end
+
+
 end
