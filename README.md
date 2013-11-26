@@ -14,32 +14,34 @@ Or install it yourself as: `$ gem install fake_friends`
 ## The FakeFriend class
 
 #### class methods
-* ::gather(n)
-* ::find_by(options)
+* ::gather(n)      
+  n: <int> (number of user objects to create)
+* ::find_by(options)       
+  options: { username: <string> } or { id: <int> }
 
 #### instance methods
 * #username
 * #name
 * #description
 * #avatar_url(size)
+  `size`: requested size of image. Available in 128, 64, 48, and 24 px. Returns closest available.
 * #url
 * #posts
-
 
 ## Usage
 
 With `include FakeFriends` assumed, use
 
     FakeFriend.gather(5)
-    
+
 to return an array of 5 `FakeFriend` objects.
 
     user = FakeFriend.find_by(id: 5)
-    
+
 returns the fifth user in the library and assigns it to `user`.
 
-`user.avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos. 
-The available sizes (in pixels) are 128, 64, 48, and 24. The method will choose the image closest in size 
+`user.avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos.
+The available sizes (in pixels) are 128, 64, 48, and 24. The method will choose the image closest in size
 to the requested `size`.
 
 `user.url` returns a hash with an `:expanded` url (e.g. `http://www.google.com`) and a `:display` url (`google.com`).
@@ -51,8 +53,8 @@ to the requested `size`.
 
 The library currently holds 100 users with associated image links and status updates.
 
-## Source 
-Images come from user contributions on uiFaces.com. 
+## Source
+Images come from user contributions on uiFaces.com.
 Posts are non-retweet tweets from the associated twitter profiles (assuming they're public).
 
 Many thanks to these users for their contributions.
@@ -60,7 +62,7 @@ Many thanks to these users for their contributions.
 
 ## Future work
 
-A hundred users should be enough for most demoing needs, but a method to fetch new user 
+A hundred users should be enough for most demoing needs, but a method to fetch new user
 data right from the FakeFriends class may be added in future.
 
 ## Contributing
