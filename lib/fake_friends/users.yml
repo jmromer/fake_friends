@@ -1,4 +1,37 @@
 ---
+idiot:
+  :name: Visual Idiot
+  :location: ''
+  :description: my jokes are a lot like fonts… comic sans
+  :url:
+    :expanded: http://visualidiot.com
+    :display: visualidiot.com
+  :image: http://pbs.twimg.com/profile_images/378800000752877142/c1a0dc3f9294a31330235def7898e0cf_normal.png
+  :posts:
+  - :time: 2013-11-26 07:20:00.000000000 -05:00
+    :text: This is some high-quality news reporting. http://t.co/BtMElENV2u
+  - :time: 2013-11-26 06:10:37.000000000 -05:00
+    :text: 'Non-loser web developer wanted: http://t.co/8abV70gvjp'
+  - :time: 2013-11-26 04:21:47.000000000 -05:00
+    :text: If web designers designed a car, would it have flat tyres?
+  - :time: 2013-11-25 18:45:26.000000000 -05:00
+    :text: This is my favourite Yahoo! Answers question yet. http://t.co/nqM2Wrt4AN
+  - :time: 2013-11-25 17:00:53.000000000 -05:00
+    :text: |-
+      What's the healthiest web hosting service?
+
+      Lo-cal-host.
+  - :time: 2013-11-25 16:22:23.000000000 -05:00
+    :text: '2014 prediction: websites that smell nice. Potpourrisponsive design.'
+  - :time: 2013-11-25 10:53:38.000000000 -05:00
+    :text: Tab Closed; Didn't Read http://t.co/Oi5lX5g57Y
+  - :time: 2013-11-25 07:27:42.000000000 -05:00
+    :text: Every Hacker News comment, ever. http://t.co/SrzIJruw3Y
+  - :time: 2013-11-25 06:21:27.000000000 -05:00
+    :text: |-
+      Lots of good various design-y stuff here. And for less than $39? notbad.jpg
+
+      https://t.co/OMyo3haRPM
 YoungCutlass:
   :name: Paul Rodriguez
   :location: Heart of the Wasatch
@@ -153,8 +186,8 @@ bassamology:
   :location: Egypt
   :description: UI/UX Designer at Jidari social network
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/378800000570847833/dc6e5baea2ebca3adf54122beb176b19_normal.jpeg
   :posts:
   - :time: 2013-11-24 18:13:02.000000000 -05:00
@@ -424,8 +457,8 @@ ninjad3m0:
   :location: ''
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/378800000701983699/bb783aea1da392b9508ce19f80f5b5f1_normal.jpeg
   :posts:
   - :time: 2013-11-21 09:38:02.000000000 -05:00
@@ -1046,8 +1079,8 @@ buryaknick:
   :location: 54.622529,39.782908
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/1803671618/IMG_0401_normal.JPG
   :posts:
   - :time: 2013-10-25 08:54:14.000000000 -04:00
@@ -1487,8 +1520,8 @@ hsinyo23:
   :location: ''
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/378800000139610331/11296dcbe2ee79473bec8c51d656ea9f_normal.jpeg
   :posts:
   - :time: 2013-11-13 19:25:02.000000000 -05:00
@@ -2179,8 +2212,8 @@ maiklam:
   :location: Sydney, Australia
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/378800000643829589/7af30b2e097d9050532604dbc3993f07_normal.png
   :posts:
   - :time: 2013-11-16 17:26:00.000000000 -05:00
@@ -2967,8 +3000,8 @@ calvintennant:
   :location: ''
   :description: Moved to @c11t_.
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://abs.twimg.com/sticky/default_profile_images/default_profile_4_normal.png
   :posts: []
 alagoon:
@@ -3033,8 +3066,8 @@ dnezkumar:
   :location: india
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/1843730005/DSC07590_copy_normal.jpg
   :posts:
   - :time: 2013-11-20 01:01:53.000000000 -05:00
@@ -4382,8 +4415,8 @@ finchjke:
   :location: ''
   :description: Web-designer, icon maker, dribbble player.
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/2627326245/o1sj3c1rqt64k81ffosn_normal.png
   :posts:
   - :time: 2013-11-20 02:23:21.000000000 -05:00
@@ -4659,8 +4692,8 @@ ethanzhang:
   :location: ''
   :description: To be with you
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/744035075/ring_normal.jpg
   :posts:
   - :time: 2013-11-02 02:35:44.000000000 -04:00
@@ -4907,8 +4940,8 @@ dotgridline:
   :location: Rio de Janeiro
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/378800000117478306/c9d9f9d451cea2b2911120e931032fea_normal.jpeg
   :posts:
   - :time: 2013-11-25 08:16:55.000000000 -05:00
@@ -5313,8 +5346,8 @@ zainiafzan:
   :location: Malacca
   :description: Online Marketing Planner
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/556698829/DSC00590_normal.jpg
   :posts:
   - :time: 2013-11-15 14:02:44.000000000 -05:00
@@ -5581,8 +5614,8 @@ rahmeen:
   :location: San Diego
   :description: Design the mind... The final frontier.
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/378800000709340355/f1bb80ab0b5b5908f9ad9c62fc4d7475_normal.jpeg
   :posts:
   - :time: 2013-10-17 18:12:41.000000000 -04:00
@@ -5992,8 +6025,8 @@ eugeneeweb:
   :location: ''
   :description: ''
   :url:
-    :expanded: 
-    :display: 
+    :expanded:
+    :display:
   :image: http://pbs.twimg.com/profile_images/3662672999/91902cd63700fc7aa551cbfedc584d5c_normal.jpeg
   :posts:
   - :time: 2013-11-12 05:52:13.000000000 -05:00

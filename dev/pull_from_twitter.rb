@@ -1,6 +1,8 @@
 require 'twitter'
 require 'yaml'
 
+# TODO: Method to pull a user from Twitter directly into FakeFriend.find_by(username)
+
 puts 'Enter your Twitter API credentials (get some @ dev.twitter.com).'
 print 'consumer key: '
 twitter_cons_key = gets.chomp
@@ -75,7 +77,7 @@ users.each_with_index do |u, i|
   end
 
   # write to file as yaml
-  users_lib = '../lib/false_friends/users.yml'
+  users_lib = '../lib/fake_friends/users.yml'
   File.open(users_lib, 'w'){|f| f.write(friends.to_yaml) }
   puts "loaded #{i+1}: #{u}"
 
@@ -111,6 +113,4 @@ users.each_with_index do |u, i|
     system(clock)
     puts ""
   end
-
-
 end
