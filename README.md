@@ -1,12 +1,12 @@
-# FalseFriends
+# FakeFriends
 
-TODO: Write a gem description
+A ruby gem for generating consistent fake user data (for demoing social networking apps.)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'falsefriends'
+    gem 'fake_friends'
 
 And then execute:
 
@@ -14,11 +14,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install lorem
+    $ gem install fake_friends
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Instructions on the way.
 
 ## Contributing
 
