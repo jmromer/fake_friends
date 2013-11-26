@@ -13,14 +13,18 @@ Or install it yourself as: `$ gem install fake_friends`
 
 ## The FakeFriend class
 
-#### ::gather(n)
-#### ::find_by(options)
-#### #username
-#### #name
-#### #description
-#### #avatar_url(size)
-#### #url
-#### #posts
+#### class methods
+* ::gather(n)
+* ::find_by(options)
+
+#### instance methods
+* #username
+* #name
+* #description
+* #avatar_url(size)
+* #url
+* #posts
+
 
 ## Usage
 
