@@ -14,19 +14,19 @@ Or install it yourself as: `$ gem install fake_friends`
 ## The FakeFriend class
 
 #### class methods
-* ::gather(n)      
-  n: <int> (number of user objects to create)
-* ::find_by(options)       
-  options: { username: <string> } or { id: <int> }
+* `::gather(n)`      
+  `n`: <int> (number of user objects to create)
+* `::find_by(options)`      
+  options: { `username:` <string> } or { `id:` <int> }
 
 #### instance methods
-* #username
-* #name
-* #description
-* #avatar_url(size)
+* `#username`
+* `#name`
+* `#description`
+* `#avatar_url(size)`
   `size`: requested size of image. Available in 128, 64, 48, and 24 px. Returns closest available.
-* #url
-* #posts
+* `#url`
+* `#posts`
 
 ## Usage
 
