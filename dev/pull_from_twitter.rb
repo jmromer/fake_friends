@@ -33,9 +33,10 @@ end
 number_of_users_to_pull = 30
 number_of_posts_to_pull = 30
 
-users   = File.open('usernames.yml', 'r'){|file| Psych.load file }
-users   = users.sample(number_of_users_to_pull)
-friends = {}
+users_lib = 'usernames.yml'
+users     = File.open(users_lib, 'r'){|file| Psych.load(file, users_lib) }
+users     = users.sample(number_of_users_to_pull)
+friends   = {}
 
 users.each_with_index do |u, i|
   ## Ensure user exists and tweets are public
@@ -73,8 +74,8 @@ users.each_with_index do |u, i|
     end
   end
 
-  # append to file as yaml
-  File.open('users.yml', 'a'){|f| f.write(friends.to_yaml) }
+  # write to file as yaml
+  File.open('users.yml', 'w'){|f| f.write(friends.to_yaml) }
   puts "loaded #{i+1}: #{u}"
 
   # Twitter API limit: 15 per 15 minutes
