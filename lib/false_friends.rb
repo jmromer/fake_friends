@@ -32,7 +32,6 @@ module FalseFriends
         User.new(username)
       elsif options[:username] && User.list.includes?(options[:username])
         User.new(options[:username])
-      }
       else
         raise ArgumentError, "Requested user not found in library."
       end
