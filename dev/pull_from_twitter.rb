@@ -75,7 +75,7 @@ users.each_with_index do |u, i|
   end
 
   # write to file as yaml
-  users_lib = 'users.yml'
+  users_lib = '../lib/false_friends/users.yml'
   File.open(users_lib, 'w'){|f| f.write(friends.to_yaml) }
   puts "loaded #{i+1}: #{u}"
 

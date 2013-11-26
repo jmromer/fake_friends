@@ -62,7 +62,7 @@ module FalseFriends
     end
 
     private
-      @user_list = File.open('users.yml', 'r'){|f| Psych.load(f) }
+      @user_list = File.open('false_friends/users.yml', 'r'){|f| Psych.load(f) }
 
       def self.list
         @user_list
