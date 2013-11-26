@@ -36,15 +36,15 @@ to return an array of 5 `FakeFriend` objects.
 
     user = FakeFriend.find_by(id: 5)
     
-returns the fifth user in the library.
+returns the fifth user in the library and assigns it to `user`.
 
-`avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos. 
+`user.avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos. 
 The available sizes (in pixels) are 128, 64, 48, and 24. The method will choose the image closest in size 
 to the requested `size`.
 
-`url` returns a hash with an `:expanded` url (e.g. `http://www.google.com`) and a `:display` url (`google.com`).
+`user.url` returns a hash with an `:expanded` url (e.g. `http://www.google.com`) and a `:display` url (`google.com`).
 
-`posts` returns an array of status updates.
+`user.posts` returns an array of `user`'s status updates.
 
 
 ## Data
