@@ -4,21 +4,60 @@ A [ruby gem](https://rubygems.org/gems/fake_friends) for generating consistent f
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile: `gem 'fake_friends'`
 
-    gem 'fake_friends'
+And then execute: `$ bundle`
 
-And then execute:
+Or install it yourself as: `$ gem install fake_friends`
 
-    $ bundle
 
-Or install it yourself as:
+## The FakeFriend class
 
-    $ gem install fake_friends
+### ::gather(n)
+### ::find_by(options)
+### #username
+### #name
+### #description
+### #avatar_url(size)
+### #url
+### #posts
 
 ## Usage
 
-TODO: Instructions on the way.
+With `include FakeFriends` assumed, use
+
+    FakeFriend.gather(5)
+    
+to return an array of 5 FakeFriend objects.
+
+    user = FakeFriend.find_by(id: 5)
+    
+returns the fifth user in the library.
+
+`avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos. 
+The available sizes (in pixels) are 128, 64, 48, 24. The method will choose the image closest in size 
+to the requested `size`.
+
+`url` returns a hash with an `expanded` url (e.g. `http://www.google.com`) and a `display` url (`google.com`).
+
+`posts` returns an array of status updates.
+
+
+## Data
+
+The library currently holds 100 users with associated image links and status updates.
+
+## Source 
+Images come from user contributions on uiFaces.com. 
+Posts are non-retweet tweets from the associated twitter profiles (assuming they're public).
+
+Many thanks to these users for their contribution.
+
+
+## Future work
+
+A hundred users should be enough for most demoing needs, but a method to fetch new user 
+data right from the FakeFriends class may be added in future.
 
 ## Contributing
 
