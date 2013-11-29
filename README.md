@@ -56,7 +56,7 @@ The library currently holds 100 users with associated status updates. Associated
 
 ## Source
 Images come from user contributions on uiFaces.com.
-Posts are non-retweet tweets from the associated twitter profiles (assuming they're public).
+Posts are non-retweet tweets from the associated twitter profiles (all public).
 
 Many thanks to these users for their contributions.
 
