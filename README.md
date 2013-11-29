@@ -17,7 +17,7 @@ Or install it yourself as: `$ gem install fake_friends`
 * `::gather(n)`      
   `n`: int (number of user objects to create)
 * `::find_by(options)`      
-  `options`: { `username:` string (twitter username) } or { `id:` int (from 1 to 100) }
+  `options`: { `username:` string (twitter username) } or { `id:` int (from 1 to 101) }
 
 #### instance methods
 * `#username`
