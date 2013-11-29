@@ -45,14 +45,14 @@ returns the fifth user in the library and assigns it to `user`.
 The available sizes (in pixels) are 128, 64, 48, and 24. The method will choose the image closest in size
 to the requested `size`.
 
-`user.url` returns a hash with an `:expanded` url (e.g. `http://www.google.com`) and a `:display` url (`google.com`).
+`user.url` returns a hash with an `:expanded` url (e.g. `http://www.google.com`) and a `:display` url (e.g. `google.com`).
 
 `user.posts` returns an array of `user`'s status updates.
 
 
 ## Data
 
-The library currently holds 100 users with associated image links and status updates.
+The library currently holds 100 users with associated status updates. Associated image urls are generated from the username.
 
 ## Source
 Images come from user contributions on uiFaces.com.
