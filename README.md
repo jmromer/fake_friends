@@ -52,7 +52,7 @@ to the requested `size`.
 
 ## Data
 
-The library currently holds 100 users with associated status updates. Associated image urls are generated from the username.
+The library currently holds 101 users with associated status updates. Associated image urls are generated from the username.
 
 ## Source
 Images come from user contributions on uiFaces.com.
