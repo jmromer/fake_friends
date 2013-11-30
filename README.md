@@ -1,6 +1,6 @@
 # FakeFriends
 
-A [ruby gem](https://rubygems.org/gems/fake_friends) for generating consistent fake user data (for demoing social networking apps.)
+A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc).
 
 ## Installation
 
