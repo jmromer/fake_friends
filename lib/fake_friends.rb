@@ -20,12 +20,12 @@ module FakeFriends
     #
     # options <hash>
     # id: n <int>
-    #   position in the users list, 1-100
+    #   position in the users list, 1-101
     #
     # username: str <string>
     #   twitter username
     #
-    # Example: FakeFriend.find_by(id: 100)
+    # Example: FakeFriend.find_by(id: 101)
     # => #<User:0x007ff0f286e2d8 ...>
     #
     # returns the requested user object
