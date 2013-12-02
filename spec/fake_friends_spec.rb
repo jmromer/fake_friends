@@ -13,7 +13,7 @@ describe FakeFriend do
         expect(users).to be_composed_of FakeFriend
       end
 
-      it "returns the requested number objects" do
+      it "returns the requested number of FakeFriends" do
         expect(users.count).to be 5
       end
 
