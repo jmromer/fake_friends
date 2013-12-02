@@ -3,9 +3,6 @@ include FakeFriends
 
 describe FakeFriend do
 
-  # it { should respond_to(:gather).with(1).argument }
-  # it { should respond_to(:find_by).with(1).argument }
-
   describe "::gather" do
 
     context "with valid input" do
