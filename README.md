@@ -3,7 +3,7 @@
 A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc).
 
 ## Release Notes
-0.1.6 December 2, 2013 (152 KB) Adds tests in RSpec
+0.1.6 December 2, 2013 (152 KB) Adds tests in RSpec    
 0.1.5 November 26, 2013 (148 KB) Iniital release
 
 ## Installation
