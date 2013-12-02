@@ -12,8 +12,9 @@ module FakeFriends
     # Friend.gather(n)
     # returns an array of n user objects
     def self.gather(n)
-      users_to_create = FakeFriend.list.keys.sample(n)
-      users_to_create.map{ |username| FakeFriend.new(username) }
+      raise ArgumentError, "Can only gather 1 to 101 FakeFriends" unless n.between?(1, 101)
+      users = FakeFriend.list.keys.sample(n)
+      users.map{ |username| FakeFriend.new(username) }
     end
 
     # FakeFriend.find_by(options)
