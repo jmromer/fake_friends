@@ -4,7 +4,6 @@ include FakeFriends
 describe FakeFriend do
 
   describe "::gather" do
-
     context "with valid input" do
       let(:users){ FakeFriend.gather(5) }
 
@@ -31,6 +30,7 @@ describe FakeFriend do
       end
     end
   end
+
 
   describe "::find_by" do
     context "with valid input (by id)" do
