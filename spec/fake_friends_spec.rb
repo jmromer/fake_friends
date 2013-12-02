@@ -3,9 +3,6 @@ include FakeFriends
 
 describe FakeFriend do
 
-  # it { should respond_to(:gather).with(1).argument }
-  # it { should respond_to(:find_by).with(1).argument }
-
   describe "::gather" do
 
     context "with valid input" do
@@ -21,7 +18,7 @@ describe FakeFriend do
       end
 
       it "does not return duplicates" do
-        expect(users.uniq.count).to be users.count
+        expect(users.count).to be users.map(&:username).uniq.count
       end
     end
 
