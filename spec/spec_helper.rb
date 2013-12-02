@@ -11,10 +11,10 @@ end
 
 RSpec::Matchers.define :be_composed_of do |expected_type|
   match do |actual|
-    actual.all?{|u| u.is_a? expected_type} == true
+    actual.all?{|u| u.is_a? expected_type}
   end
 
   failure_message_for_should do |actual|
-    "expected that #{actual.class} would be composed of #{expected_type}s"
+    "expected #{actual.class} to be composed of #{expected_type}s"
   end
 end
