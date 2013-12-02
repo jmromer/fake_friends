@@ -4,7 +4,7 @@ A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consiste
 
 ## Release Notes
 0.1.6 December 2, 2013 (152 KB) Adds tests in RSpec    
-0.1.5 November 26, 2013 (148 KB) Iniital release
+0.1.5 November 26, 2013 (148 KB) Inital release
 
 ## Installation
 
