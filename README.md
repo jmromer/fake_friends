@@ -1,6 +1,6 @@
 # FakeFriends
 
-A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc).
+A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular [Faker](https://github.com/stympy/faker) gem.
 
 ## Release Notes
 0.1.6 December 2, 2013 (152 KB) Adds tests in RSpec    
@@ -61,14 +61,12 @@ The library currently holds 101 users with associated status updates. Associated
 ## Source
 Images come from user contributions on uiFaces.com.
 Posts are non-retweet tweets from the associated twitter profiles (all public).
-
 Many thanks to these users for their contributions.
 
 
 ## Future work
 
-A hundred users should be enough for most demoing needs, but a method to fetch new user
-data right from the FakeFriends class may be added in future.
+A hundred users should be enough for most demoing needs, but a class method to fetch fresh data from the Twitter API may be added in future.
 
 ## Contributing
 
