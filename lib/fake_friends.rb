@@ -61,7 +61,7 @@ module FakeFriends
     # avatar_url(size)
     # returns the user's uiFaces url in the closest available size
     def avatar_url(size)
-      valid_sizes = [128, 64, 48, 24]
+      valid_sizes = [128, 73, 48, 24]
       size = valid_sizes.min { |a,b| (size-a).abs <=> (size-b).abs }
       "https://s3.amazonaws.com/uifaces/faces/twitter/#{username}/#{size}.jpg"
     end
