@@ -28,7 +28,7 @@ Or install it yourself as: `$ gem install fake_friends`
 * `#name`
 * `#description`
 * `#avatar_url(size)`     
-  `size`: requested size of image. Available in 128, 64, 48, and 24 px.       
+  `size`: requested size of image. Available in 128, 73, 48, and 24 px.       
    Returns a url to an image in the closest available size.
 * `#url`
 * `#posts`
