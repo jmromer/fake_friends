@@ -3,7 +3,7 @@
 A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular [Faker](https://github.com/stympy/faker) gem.
 
 ## Release Notes
-1.0.0 (12.18.13) Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed
+1.0.0 (12.18.13) Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed     
 0.1.6 (12.02.13) Adds tests in RSpec    
 0.1.5 (11.26.13) Inital release
 
