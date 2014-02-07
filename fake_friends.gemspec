@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "fake_friends"
   spec.version       = FalseFriends::VERSION
   spec.authors       = ["Jake Romer"]
-  spec.email         = ["jake@jakeromer.com"]
+  spec.email         = ["jacob.romer@icloud.com"]
   spec.description   = %q{A simple fake user generator}
   spec.summary       = %q{Generates fake users with consistent
                         attributes, up to 30 from local dictionary,
@@ -25,6 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "twitter", "~> 5.2.0"
   spec.add_development_dependency "rspec", "~> 2.14.1"
 
-  spec.add_development_dependency "bundler", "~> 1.3.5"
+  spec.add_development_dependency "bundler", "~> 1.5.2"
   spec.add_development_dependency "rake", "~> 10.1.0"
 end
