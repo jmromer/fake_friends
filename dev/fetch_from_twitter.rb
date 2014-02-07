@@ -62,6 +62,15 @@ class TweetFetcher
     puts "Finished fetching users and tweets"
   end
 
+  private
+
+  # ---
+  # helper method
+  # ---
+  def user_exists_and_tweets_are_public?(u)
+    twitter_client.user?(u) && !twitter_client.user(u).protected?
+  end
+
   # ---
   # For a given Twitter user, returns a hash with the following strings:
   # name, location, description, url[:expanded], url[:display], image url
@@ -69,31 +78,29 @@ class TweetFetcher
   # ---
   def create_user_hash_for(u)
     ## Ensure user exists and tweets are public
-    if twitter_client.user?(u)
-      unless twitter_client.user(u).protected?
+    if user_exists_and_tweets_are_public?(u)
 
-        user = twitter_client.user(u)  # load user
-        posts = posts(u, max_posts_per_user) # fetch 100 posts
+      user  = twitter_client.user(u)  # load user
+      posts = posts(u, max_posts_per_user) # fetch 100 posts
 
-        begin     # get expanded url if it exists
-          expanded_url = user.attrs[:entities][:url][:urls].first[:expanded_url]
-        rescue
-          expanded_url = nil
-        end
-
-        begin     # get display url if it exists
-          display_url = user.attrs[:entities][:url][:urls].first[:display_url]
-        rescue
-          display_url = nil
-        end
-
-        {
-          name: user.name, location: user.location,
-          description: user.description,
-          url: { expanded: expanded_url, display: display_url },
-          image: user.profile_image_url, posts: posts
-        }
+      begin     # get expanded url if it exists
+        expanded_url = user.attrs[:entities][:url][:urls].first[:expanded_url]
+      rescue
+        expanded_url = nil
       end
+
+      begin     # get display url if it exists
+        display_url = user.attrs[:entities][:url][:urls].first[:display_url]
+      rescue
+        display_url = nil
+      end
+
+      {
+        name: user.name, location: user.location,
+        description: user.description,
+        url: { expanded: expanded_url, display: display_url },
+        image: user.profile_image_url, posts: posts
+      }
     end
   end
 
