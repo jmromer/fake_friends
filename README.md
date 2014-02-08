@@ -2,23 +2,23 @@
 
 [![Gem Version](https://badge.fury.io/rb/fake_friends.png)](http://badge.fury.io/rb/fake_friends)
 [![Code Climate](https://codeclimate.com/github/jmromer/FakeFriends.png)](https://codeclimate.com/github/jmromer/FakeFriends)
-[![Build Status](https://travis-ci.org/jmromer/FakeFriends.png?branch=master)](https://travis-ci.org/jmromer/FakeFriends)
 [![Dependency Status](https://gemnasium.com/jmromer/FakeFriends.png)](https://gemnasium.com/jmromer/FakeFriends)
+[![Build Status](https://travis-ci.org/jmromer/FakeFriends.png?branch=master)](https://travis-ci.org/jmromer/FakeFriends)
 
 A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular [Faker](https://github.com/stympy/faker) gem.
 
 
 ## Release Notes
-**1.0.0** Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed
-**0.1.6** Adds tests in RSpec
-**0.1.5** Inital release
+**1.0.0** Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed<br>
+**0.1.6** Adds tests in RSpec<br>
+**0.1.5** Inital release<br>
 
 
 ## Installation
 
-Add this line to your application's Gemfile: `gem 'fake_friends'`
-And then execute: `$ bundle`
-Or install it yourself as: `$ gem install fake_friends`
+Add this line to your application's Gemfile: `gem 'fake_friends'`<br>
+And then execute: `$ bundle`<br>
+Or install it yourself as: `$ gem install fake_friends`<br>
 
 
 ## The FakeFriend class
