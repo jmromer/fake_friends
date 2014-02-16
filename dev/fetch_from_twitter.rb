@@ -128,18 +128,13 @@ class TweetFetcher
   # ---
   def countdown_minutes(min)
     puts "taking a #{min}-minute power nap to stay within Twitter API rate limits..."
+    seconds = (min * 60).to_i
 
-    clock =<<-SHELL
-      MIN=#{min}
-      for i in $(seq $(($MIN*60)) -1 1);
-        do
-          printf "\r%02d:%02d:%02d" $((i/3600)) $(( (i/60)%60)) $((i%60));
-          sleep 1;
-        done
-    SHELL
-
-    system(clock)
-    puts ""
+    (1..seconds).reverse_each do |sec|
+      print "\r%02d:%02d:%02d" % [ sec / 3600, sec / 60, sec % 60 ]
+      sleep 1
+    end
+    puts "\n"
   end
 end
 
