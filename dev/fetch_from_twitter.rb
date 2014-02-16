@@ -132,9 +132,10 @@ class TweetFetcher
 
     (1..seconds).reverse_each do |sec|
       print "\r%02d:%02d:%02d" % [ sec / 3600, sec / 60, sec % 60 ]
+      $stdout.flush
       sleep 1
     end
-    puts "\n"
+    puts 
   end
 end
 
