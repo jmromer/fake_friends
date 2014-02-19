@@ -135,7 +135,7 @@ class TweetFetcher
       $stdout.flush
       sleep 1
     end
-    puts 
+    puts
   end
 end
 

@@ -1,3 +1,3 @@
-module FalseFriends
-  VERSION = "1.0.0"
+module FakeFriends
+  VERSION = "1.0.1"
 end

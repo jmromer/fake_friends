@@ -5,7 +5,7 @@ require 'fake_friends/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "fake_friends"
-  spec.version       = FalseFriends::VERSION
+  spec.version       = FakeFriends::VERSION
   spec.authors       = ["Jake Romer"]
   spec.email         = ["jacob.romer@icloud.com"]
   spec.description   = %q{A simple fake user generator}
