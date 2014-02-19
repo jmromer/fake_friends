@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["jacob.romer@icloud.com"]
   spec.description   = %q{A simple fake user generator}
   spec.summary       = %q{Generates fake users with consistent
-                        attributes, up to 30 from local dictionary,
-                        up to 100 pulling fresh data using the Twitter gem}
+                        attributes from public Twitter accounts
+                        and image urls from uiFaces.com.}
   spec.homepage      = "http://github.com/jmromer/FakeFriends"
   spec.license       = "MIT"
   spec.files         = `git ls-files`.split($/)
