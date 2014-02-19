@@ -9,7 +9,7 @@ A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consiste
 
 
 ## Release Notes
-**1.0.1** Clarifies documentation, updates dependencies, fixes gemspec typos
+**1.0.1** Clarifies documentation, updates dependencies, fixes gemspec typos<br>
 **1.0.0** Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed<br>
 **0.1.6** Adds tests in RSpec<br>
 **0.1.5** Inital release<br>
