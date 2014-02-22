@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/fake_friends.png)](http://badge.fury.io/rb/fake_friends)
 [![Code Climate](https://codeclimate.com/github/jmromer/FakeFriends.png)](https://codeclimate.com/github/jmromer/FakeFriends)
 [![Dependency Status](https://gemnasium.com/jmromer/FakeFriends.png)](https://gemnasium.com/jmromer/FakeFriends)
-[![Build Status](https://travis-ci.org/jmromer/FakeFriends.png?branch=master)](https://travis-ci.org/jmromer/FakeFriends)
+[![Build Status](https://travis-ci.org/jmromer/fake_friends.png?branch=master)](https://travis-ci.org/jmromer/fake_friends)
 
 A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular [Faker](https://github.com/stympy/faker) gem.
 

@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Generates fake users with consistent
                         attributes from public Twitter accounts
                         and image urls from uiFaces.com.}
-  spec.homepage      = "http://github.com/jmromer/FakeFriends"
+  spec.homepage      = "http://jakeromer.com/fake_friends"
   spec.license       = "MIT"
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
