@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Fakefriends by jmromer</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Fakefriends</h1>
+          <h2>A ruby gem for generating consistent fake user data (for demoing social networking apps.)</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jmromer/FakeFriends/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jmromer/FakeFriends/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jmromer/FakeFriends" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="fakefriends" class="anchor" href="#fakefriends"><span class="octicon octicon-link"></span></a>FakeFriends</h1>
+
+<p><a href="http://badge.fury.io/rb/fake_friends"><img src="http://badge.fury.io/rb/fake_friends.png" alt="Gem Version"></a>
+<a href="https://codeclimate.com/github/jmromer/FakeFriends"><img src="http://codeclimate.com/github/jmromer/FakeFriends.png" alt="Code Climate"></a>
+<a href="https://gemnasium.com/jmromer/FakeFriends"><img src="http://gemnasium.com/jmromer/FakeFriends.png" alt="Dependency Status"></a>
+<a href="https://travis-ci.org/jmromer/FakeFriends"><img src="http://travis-ci.org/jmromer/FakeFriends.png?branch=master" alt="Build Status"></a></p>
+
+<p>A simple <a href="https://rubygems.org/gems/fake_friends">ruby gem</a> to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular <a href="https://github.com/stympy/faker">Faker</a> gem.</p>
+
+<h2>
+<a name="release-notes" class="anchor" href="#release-notes"><span class="octicon octicon-link"></span></a>Release Notes</h2>
+
+<p><strong>1.0.1</strong> Clarifies documentation, updates dependencies, fixes gemspec typos<br><strong>1.0.0</strong> Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed<br><strong>0.1.6</strong> Adds tests in RSpec<br><strong>0.1.5</strong> Inital release<br></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile: <code>gem 'fake_friends'</code><br>
+And then execute: <code>$ bundle</code><br>
+Or install it yourself as: <code>$ gem install fake_friends</code><br></p>
+
+<h2>
+<a name="the-fakefriend-class" class="anchor" href="#the-fakefriend-class"><span class="octicon octicon-link"></span></a>The FakeFriend class</h2>
+
+<h4>
+<a name="class-methods" class="anchor" href="#class-methods"><span class="octicon octicon-link"></span></a>class methods</h4>
+
+<ul>
+<li>
+<code>::gather(n)</code>
+<code>n</code>: int (number of user objects to create)</li>
+<li>
+<code>::find_by(options)</code>
+<code>options</code>: { <code>username:</code> string (twitter username) } or { <code>id:</code> int (from 1 to 101) }</li>
+</ul><h4>
+<a name="instance-methods" class="anchor" href="#instance-methods"><span class="octicon octicon-link"></span></a>instance methods</h4>
+
+<ul>
+<li><code>#username</code></li>
+<li><code>#name</code></li>
+<li><code>#description</code></li>
+<li>
+<code>#avatar_url(size)</code>
+<code>size</code>: requested size of image. Available in 128, 73, 48, and 24 px.
+Returns a url to an image in the closest available size.</li>
+<li><code>#url</code></li>
+<li><code>#posts</code></li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>With <code>include FakeFriends</code> assumed, use</p>
+
+<pre><code>FakeFriend.gather(5)
+</code></pre>
+
+<p>to return an array of 5 <code>FakeFriend</code> objects.</p>
+
+<pre><code>user = FakeFriend.find_by(id: 5)
+</code></pre>
+
+<p>returns the fifth user in the library and assigns it to <code>user</code>.</p>
+
+<p><code>user.avatar_url(size)</code> pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos.
+The available sizes (in pixels) are 128, 73, 48, and 24. The method will choose the image closest in size
+to the requested <code>size</code>.</p>
+
+<p><code>user.url</code> returns a hash with an <code>:expanded</code> url (e.g. <code>http://www.google.com</code>) and a <code>:display</code> url (e.g. <code>google.com</code>).</p>
+
+<p><code>user.posts</code> returns an array of <code>user</code>'s status updates.</p>
+
+<h2>
+<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h2>
+
+<p>The library currently holds 101 users with associated status updates. Associated image urls are generated from the username.</p>
+
+<h2>
+<a name="source" class="anchor" href="#source"><span class="octicon octicon-link"></span></a>Source</h2>
+
+<p>Images come from user contributions on uiFaces.com.
+Posts are non-retweet tweets from the associated twitter profiles (all public).
+Many thanks to these users for their contributions.</p>
+
+<h2>
+<a name="future-work" class="anchor" href="#future-work"><span class="octicon octicon-link"></span></a>Future work</h2>
+
+<p>A hundred users should be enough for most demoing needs, but a class method to fetch fresh data from the Twitter API may be added in future. The script used to fetch data from the Twitter API is included in the <code>dev</code> folder.</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+        </section>
+
+        <footer>
+          Fakefriends is maintained by <a href="https://github.com/jmromer">jmromer</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
