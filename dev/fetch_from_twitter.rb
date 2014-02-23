@@ -7,7 +7,7 @@ class TweetFetcher
   attr_reader :twitter_client, :number_of_users, :max_posts_per_user,
               :avail_users, :output_file_rel_path, :fake_friends
 
-  def initialize(opt={ users: 100, max_posts_per_user: 60,
+  def initialize(opt={ users: 101, max_posts_per_user: 100,
                        user_list: "#{PROJ_ROOT}/dev/usernames.yml",
                        output_file: "#{PROJ_ROOT}/lib/fake_friends/users.yml" } )
 
@@ -18,6 +18,7 @@ class TweetFetcher
 
     @fake_friends   = {} # users to be stored as FakeFriend objects
     @twitter_client = initialize_twitter_api_client
+    puts "\nTwitter API credentials set."
   end
 
   # ---
@@ -25,7 +26,6 @@ class TweetFetcher
   # ---
   def initialize_twitter_api_client
     puts "\nEnter your Twitter API credentials (get some @ dev.twitter.com)."
-
     Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["API_KEY"]   || prompt_for('api key')
       config.consumer_secret     = ENV["API_SEC"]   || prompt_for('api secret')
@@ -52,9 +52,16 @@ class TweetFetcher
     users = avail_users.take(number_of_users)
 
     users.each_with_index do |username, user_num|
-      if user_exists_and_tweets_are_public?(username)
-        fake_friends[username] = create_user_hash_for(username)
-        update_output_file_with(username, user_num)
+      begin
+        if user_exists_and_tweets_are_public?(username)
+          fake_friends[username] = create_user_hash_for(username)
+          update_output_file_with(username, user_num)
+        else
+          puts "user #{username} does not exist or does not have a public account."
+        end
+      rescue Twitter::Error::RequestTimeout
+        countdown_minutes(1)
+        retry
       end
     end
 
@@ -89,13 +96,13 @@ class TweetFetcher
 
     begin     # get expanded url if it exists
       expanded_url = user.attrs[:entities][:url][:urls].first[:expanded_url]
-    rescue
+    rescue NoMethodError
       expanded_url = nil
     end
 
     begin     # get display url if it exists
       display_url = user.attrs[:entities][:url][:urls].first[:display_url]
-    rescue
+    rescue NoMethodError
       display_url = nil
     end
 
@@ -144,4 +151,5 @@ class TweetFetcher
   end
 end
 
-TweetFetcher.new.fetch_users_and_their_tweets
+twitter_api = TweetFetcher.new
+twitter_api.fetch_users_and_their_tweets
