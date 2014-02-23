@@ -5,7 +5,7 @@ class TweetFetcher
   attr_reader :twitter_client, :number_of_users, :max_posts_per_user,
               :avail_users, :output_file_rel_path, :fake_friends
 
-  def initialize(opt={ users: 100, max_posts_per_user: 50,
+  def initialize(opt={ users: 100, max_posts_per_user: 60,
                        user_list: 'usernames.yml',
                        output_file: '../lib/fake_friends/users.yml' } )
 
@@ -25,14 +25,14 @@ class TweetFetcher
     puts 'Enter your Twitter API credentials (get some @ dev.twitter.com).'
 
     Twitter::REST::Client.new do |config|
-      print 'consumer key: '
+      print 'api key: '
       config.consumer_key        = gets.chomp
-      print 'consumer secret: '
+      print 'api secret: '
       config.consumer_secret     = gets.chomp
-      print 'oauth token: '
-      config.oauth_token         = gets.chomp
-      print 'oauth token secret: '
-      config.oauth_token_secret  = gets.chomp
+      print 'access token: '
+      config.access_token        = gets.chomp
+      print 'access token secret: '
+      config.access_token_secret = gets.chomp
     end
   end
 
@@ -51,9 +51,8 @@ class TweetFetcher
   # Fetches users and their tweets, iteratively saves them to file as YAML
   # ---
   def fetch_users_and_their_tweets
-    users = avail_users.sample( number_of_users )
+    users = avail_users.take(number_of_users)
 
-    puts ""
     users.each_with_index do |username, user_num|
       if user_exists_and_tweets_are_public?(username)
         fake_friends[username] = create_user_hash_for(username)
@@ -67,7 +66,7 @@ class TweetFetcher
   private
 
   # ---
-  # helper method
+  # Returns true the requested account exists and is public
   # ---
   def user_exists_and_tweets_are_public?(u)
     twitter_client.user?(u) && !twitter_client.user(u).protected?
@@ -76,11 +75,11 @@ class TweetFetcher
   # ---
   # For a given Twitter user, returns a hash with the following strings:
   # name, location, description, url[:expanded], url[:display], image url
-  # and an array containing the desired number of tweets
+  # and an array containing the desired maximum number of tweets
   # ---
   def create_user_hash_for(u)
     user  = twitter_client.user(u)       # load user
-    posts = posts(u, max_posts_per_user) # fetch 100 posts
+    posts = posts(u, max_posts_per_user) # fetch <= 100 posts
 
     begin     # get expanded url if it exists
       expanded_url = user.attrs[:entities][:url][:urls].first[:expanded_url]
@@ -98,7 +97,7 @@ class TweetFetcher
       name: user.name, location: user.location,
       description: user.description,
       url: { expanded: expanded_url, display: display_url },
-      image: user.profile_image_url, posts: posts
+      image: user.profile_image_url.to_s, posts: posts
     }
   end
 
@@ -111,7 +110,7 @@ class TweetFetcher
       f.write(fake_friends.to_yaml)
     end
 
-    puts "fetched and saved user #{number+1}: #{user}"
+    puts "\nfetched and saved user #{number+1}: #{user}"
 
     if number_of_users <= 75
       # small number fetched in batches, rest every 15th user
@@ -130,7 +129,7 @@ class TweetFetcher
     puts "taking a #{min}-minute power nap to stay within Twitter API rate limits..."
     seconds = (min * 60).to_i
 
-    (1..seconds).reverse_each do |sec|
+    seconds.downto 0 do |sec|
       print "\r%02d:%02d:%02d" % [ sec / 3600, sec / 60, sec % 60 ]
       $stdout.flush
       sleep 1
@@ -139,5 +138,4 @@ class TweetFetcher
   end
 end
 
-twitter_api = TweetFetcher.new
-twitter_api.fetch_users_and_their_tweets
+TweetFetcher.new.fetch_users_and_their_tweets
