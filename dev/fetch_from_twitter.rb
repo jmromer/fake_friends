@@ -1,13 +1,15 @@
 require 'twitter'
 require 'yaml'
 
+PROJ_ROOT = File.expand_path("../../", __FILE__)
+
 class TweetFetcher
   attr_reader :twitter_client, :number_of_users, :max_posts_per_user,
               :avail_users, :output_file_rel_path, :fake_friends
 
   def initialize(opt={ users: 100, max_posts_per_user: 60,
-                       user_list: 'usernames.yml',
-                       output_file: '../lib/fake_friends/users.yml' } )
+                       user_list: "#{PROJ_ROOT}/dev/usernames.yml",
+                       output_file: "#{PROJ_ROOT}/lib/fake_friends/users.yml" } )
 
     @number_of_users      = opt[:users]
     @max_posts_per_user   = opt[:max_posts_per_user]
@@ -22,17 +24,13 @@ class TweetFetcher
   # prompts for twitter api credentials and returns a client
   # ---
   def initialize_twitter_api_client
-    puts 'Enter your Twitter API credentials (get some @ dev.twitter.com).'
+    puts "\nEnter your Twitter API credentials (get some @ dev.twitter.com)."
 
     Twitter::REST::Client.new do |config|
-      print 'api key: '
-      config.consumer_key        = gets.chomp
-      print 'api secret: '
-      config.consumer_secret     = gets.chomp
-      print 'access token: '
-      config.access_token        = gets.chomp
-      print 'access token secret: '
-      config.access_token_secret = gets.chomp
+      config.consumer_key  = ENV["API_KEY"]       || prompt_for('api key')
+      config.consumer_sec  = ENV["API_SEC"]       || prompt_for('api secret')
+      config.acc_token     = ENV["ACC_TOKEN"]     || prompt_for('access token')
+      config.acc_token_sec = ENV["ACC_TOKEN_SEC"] || prompt_for('access token secret')
     end
   end
 
@@ -64,6 +62,14 @@ class TweetFetcher
   end
 
   private
+
+  # ---
+  # Prompts for user input, returns string
+  # ---
+  def prompt_for(string)
+    print "#{string}: "
+    gets.chomp
+  end
 
   # ---
   # Returns true the requested account exists and is public
