@@ -6,10 +6,11 @@
 [![Dependency Status](https://gemnasium.com/jmromer/FakeFriends.png)](https://gemnasium.com/jmromer/fake_friends)
 
 
-A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular [Faker](https://github.com/stympy/faker) gem.
+A simple [ruby gem](https://rubygems.org/gems/fake_friends) to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular [faker](https://github.com/stympy/faker) gem.
 
 
 ## Release Notes
+**1.0.2** Refreshes user library contents, goes back to 100 users, makes `::all` public<br>
 **1.0.1** Clarifies documentation, updates dependencies, fixes gemspec typos<br>
 **1.0.0** Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed<br>
 **0.1.6** Adds tests in RSpec<br>
@@ -29,7 +30,8 @@ Or install it yourself as: `$ gem install fake_friends`<br>
 * `::gather(n)`
   `n`: int (number of user objects to create)
 * `::find_by(options)`
-  `options`: { `username:` string (twitter username) } or { `id:` int (from 1 to 101) }
+  `options`: { `username:` string (twitter username) } or { `id:` int (from 1 to 100) }
+* `::all`
 
 #### instance methods
 * `#username`
@@ -51,11 +53,13 @@ to return an array of 5 `FakeFriend` objects.
 
     user = FakeFriend.find_by(id: 5)
 
-returns the fifth user in the library and assigns it to `user`.
+returns the fifth user in the library and assigns it to `user`, and use
 
-`user.avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos.
-The available sizes (in pixels) are 128, 73, 48, and 24. The method will choose the image closest in size
-to the requested `size`.
+    FakeFriend.all
+
+to return all the users in the library.
+
+`user.avatar_url(size)` pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos. The available sizes (in pixels) are 128, 73, 48, and 24. The method will choose the image closest in size to the requested `size`.
 
 `user.url` returns a hash with an `:expanded` url (e.g. `http://www.google.com`) and a `:display` url (e.g. `google.com`).
 
@@ -64,7 +68,7 @@ to the requested `size`.
 
 ## Data
 
-The library currently holds 101 users with associated status updates. Associated image urls are generated from the username.
+The library currently holds 100 users with associated status updates. Associated image urls are generated from the username.
 
 ## Source
 Images come from user contributions on uiFaces.com.

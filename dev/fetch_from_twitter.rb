@@ -7,7 +7,7 @@ class TweetFetcher
   attr_reader :twitter_client, :number_of_users, :max_posts_per_user,
               :avail_users, :output_file_rel_path, :fake_friends
 
-  def initialize(opt={ users: 101, max_posts_per_user: 100,
+  def initialize(opt={ users: 100, max_posts_per_user: 60,
                        user_list: "#{PROJ_ROOT}/dev/usernames.yml",
                        output_file: "#{PROJ_ROOT}/lib/fake_friends/users.yml" } )
 
@@ -57,7 +57,7 @@ class TweetFetcher
           fake_friends[username] = create_user_hash_for(username)
           update_output_file_with(username, user_num)
         else
-          puts "user #{username} does not exist or does not have a public account."
+          puts "user #{username} no longer exists or does not have a public account."
         end
       rescue Twitter::Error::RequestTimeout
         countdown_minutes(1)
@@ -79,10 +79,12 @@ class TweetFetcher
   end
 
   # ---
-  # Returns true the requested account exists and is public
+  # Returns true only if the requested account exists and is public
   # ---
   def user_exists_and_tweets_are_public?(u)
     twitter_client.user?(u) && !twitter_client.user(u).protected?
+  rescue Twitter::Error::Forbidden
+    false
   end
 
   # ---
@@ -94,16 +96,11 @@ class TweetFetcher
     user  = twitter_client.user(u)       # load user
     posts = posts(u, max_posts_per_user) # fetch <= 100 posts
 
-    begin     # get expanded url if it exists
+    begin     # get urls if they exist
       expanded_url = user.attrs[:entities][:url][:urls].first[:expanded_url]
+      display_url  = user.attrs[:entities][:url][:urls].first[:display_url]
     rescue NoMethodError
-      expanded_url = nil
-    end
-
-    begin     # get display url if it exists
-      display_url = user.attrs[:entities][:url][:urls].first[:display_url]
-    rescue NoMethodError
-      display_url = nil
+      expanded_url = display_url = nil
     end
 
     {

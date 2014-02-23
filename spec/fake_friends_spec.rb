@@ -26,7 +26,7 @@ describe FakeFriend do
         it { expect { FakeFriend.gather(-1) }.to raise_error(ArgumentError) }
       end
       describe "with too high a number" do
-        it { expect { FakeFriend.gather(102) }.to raise_error(ArgumentError) }
+        it { expect { FakeFriend.gather(101) }.to raise_error(ArgumentError) }
       end
     end
   end
@@ -62,7 +62,8 @@ describe FakeFriend do
         it { expect { FakeFriend.find_by(age: 50) }.to raise_error(ArgumentError) }
       end
       describe "with an invalid id" do
-        it { expect { FakeFriend.find_by(id: 102) }.to raise_error(ArgumentError) }
+        it { expect { FakeFriend.find_by(id: -1) }.to raise_error(ArgumentError) }
+        it { expect { FakeFriend.find_by(id: 101) }.to raise_error(ArgumentError) }
       end
       describe "with an invalid username" do
         it { expect { FakeFriend.find_by(username: "invalid_username") }.to raise_error(ArgumentError) }
