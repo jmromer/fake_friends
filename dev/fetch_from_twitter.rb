@@ -27,10 +27,10 @@ class TweetFetcher
     puts "\nEnter your Twitter API credentials (get some @ dev.twitter.com)."
 
     Twitter::REST::Client.new do |config|
-      config.consumer_key  = ENV["API_KEY"]       || prompt_for('api key')
-      config.consumer_sec  = ENV["API_SEC"]       || prompt_for('api secret')
-      config.acc_token     = ENV["ACC_TOKEN"]     || prompt_for('access token')
-      config.acc_token_sec = ENV["ACC_TOKEN_SEC"] || prompt_for('access token secret')
+      config.consumer_key     = ENV["API_KEY"]       || prompt_for('api key')
+      config.consumer_secret  = ENV["API_SEC"]       || prompt_for('api secret')
+      config.acc_token        = ENV["ACC_TOKEN"]     || prompt_for('access token')
+      config.acc_token_secret = ENV["ACC_TOKEN_SEC"] || prompt_for('access token secret')
     end
   end
 
