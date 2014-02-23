@@ -19,7 +19,7 @@
 
         <header>
           <h1>fake_friends</h1>
-          <h2>A ruby gem for generating consistent fake user data for demoing social networking apps.</h2>
+          <h2>A ruby gem that generates consistent fake user data for demoing social networking apps.</h2>
         </header>
 
         <section id="downloads" class="clearfix">
@@ -39,12 +39,12 @@
 <a href="https://travis-ci.org/jmromer/fake_friends"><img src="https://travis-ci.org/jmromer/fake_friends.png?branch=master" alt="Build Status"></a>
 <a href="https://gemnasium.com/jmromer/fake_friends"><img src="https://gemnasium.com/jmromer/FakeFriends.png" alt="Dependency Status"></a></p>
 
-<p>A simple <a href="https://rubygems.org/gems/fake_friends">ruby gem</a> to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular <a href="https://github.com/stympy/faker">Faker</a> gem.</p>
+<p>A simple <a href="https://rubygems.org/gems/fake_friends">ruby gem</a> to generate consistent and realistic fake user data for demoing social networking apps (e.g., user names match their avatars, fake posts are pulled from actual Twitter posts rather than lorem text, etc), modeled on the popular <a href="https://github.com/stympy/faker">faker</a> gem.</p>
 
 <h2>
 <a name="release-notes" class="anchor" href="#release-notes"><span class="octicon octicon-link"></span></a>Release Notes</h2>
 
-<p><strong>1.0.1</strong> Clarifies documentation, updates dependencies, fixes gemspec typos<br><strong>1.0.0</strong> Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed<br><strong>0.1.6</strong> Adds tests in RSpec<br><strong>0.1.5</strong> Inital release<br></p>
+<p><strong>1.0.2</strong> Refreshes user library contents, goes back to 100 users, makes <code>::all</code> public<br><strong>1.0.1</strong> Clarifies documentation, updates dependencies, fixes gemspec typos<br><strong>1.0.0</strong> Rewrites fetch script and updates it for Twitter API v1.1 (backwards incompatible), minor bug fixed<br><strong>0.1.6</strong> Adds tests in RSpec<br><strong>0.1.5</strong> Inital release<br></p>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -65,7 +65,8 @@ Or install it yourself as: <code>$ gem install fake_friends</code><br></p>
 <code>n</code>: int (number of user objects to create)</li>
 <li>
 <code>::find_by(options)</code>
-<code>options</code>: { <code>username:</code> string (twitter username) } or { <code>id:</code> int (from 1 to 101) }</li>
+<code>options</code>: { <code>username:</code> string (twitter username) } or { <code>id:</code> int (from 1 to 100) }</li>
+<li><code>::all</code></li>
 </ul><h4>
 <a name="instance-methods" class="anchor" href="#instance-methods"><span class="octicon octicon-link"></span></a>instance methods</h4>
 
@@ -92,11 +93,14 @@ Returns a url to an image in the closest available size.</li>
 <pre><code>user = FakeFriend.find_by(id: 5)
 </code></pre>
 
-<p>returns the fifth user in the library and assigns it to <code>user</code>.</p>
+<p>returns the fifth user in the library and assigns it to <code>user</code>, and use</p>
 
-<p><code>user.avatar_url(size)</code> pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos.
-The available sizes (in pixels) are 128, 73, 48, and 24. The method will choose the image closest in size
-to the requested <code>size</code>.</p>
+<pre><code>FakeFriend.all
+</code></pre>
+
+<p>to return all the users in the library.</p>
+
+<p><code>user.avatar_url(size)</code> pulls an avatar from uiFaces.com, where Twitter users have contributed their profile photos. The available sizes (in pixels) are 128, 73, 48, and 24. The method will choose the image closest in size to the requested <code>size</code>.</p>
 
 <p><code>user.url</code> returns a hash with an <code>:expanded</code> url (e.g. <code>http://www.google.com</code>) and a <code>:display</code> url (e.g. <code>google.com</code>).</p>
 
@@ -105,7 +109,7 @@ to the requested <code>size</code>.</p>
 <h2>
 <a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>Data</h2>
 
-<p>The library currently holds 101 users with associated status updates. Associated image urls are generated from the username.</p>
+<p>The library currently holds 100 users with associated status updates. Associated image urls are generated from the username.</p>
 
 <h2>
 <a name="source" class="anchor" href="#source"><span class="octicon octicon-link"></span></a>Source</h2>
