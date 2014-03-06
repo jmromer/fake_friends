@@ -27,9 +27,9 @@ Or install it yourself as: `$ gem install fake_friends`<br>
 ## The FakeFriend class
 
 #### class methods
-* `::gather(n)`
+* `::gather(n)`<br>
   `n`: int (number of user objects to create)
-* `::find_by(options)`
+* `::find_by(options)`<br>
   `options`: { `username:` string (twitter username) } or { `id:` int (from 1 to 100) }
 * `::all`
 
@@ -38,7 +38,7 @@ Or install it yourself as: `$ gem install fake_friends`<br>
 * `#name`
 * `#description`
 * `#avatar_url(size)`
-  `size`: requested size of image. Available in 128, 73, 48, and 24 px.
+  `size`: requested size of image. Available in 128, 73, 48, and 24 px.<br>
    Returns a url to an image in the closest available size.
 * `#url`
 * `#posts`
@@ -71,8 +71,8 @@ to return all the users in the library.
 The library currently holds 100 users with associated status updates. Associated image urls are generated from the username.
 
 ## Source
-Images come from user contributions on uiFaces.com.
-Posts are non-retweet tweets from the associated twitter profiles (all public).
+Images come from user contributions on uiFaces.com.<br>
+Posts are non-retweet tweets from the associated twitter profiles (all public).<br>
 Many thanks to these users for their contributions.
 
 
