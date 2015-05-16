@@ -15,4 +15,8 @@ RSpec::Matchers.define :be_composed_of do |expected_type|
   failure_message do |actual|
     "expected #{actual.class} to be composed of #{expected_type}s"
   end
+
+  failure_message_when_negated do |actual|
+    "expected #{actual.class} to not be composed of #{expected_type}s"
+  end
 end
